@@ -18,7 +18,7 @@ class ListingRepository {
         self.networkLayer = networkLayer
     }
     
-    func getListings(date: Date) async -> [Listing]? {
+    func getListings(date: Date, force: Bool = false) async -> [Listing]? {
         let formattedDate = date.format(.dashedDate)
         let queryItems = [URLQueryItem(name: Endpoint.shiftsDateQuery, value: formattedDate)]
         let endpoint = Endpoint.getListings(with: queryItems)
@@ -26,6 +26,9 @@ class ListingRepository {
         let responseDTO: ListingDataDTO? = await networkLayer.requestWithHandledErrors(endpoint)
         
         if let responseDTO = responseDTO {
+            if force {
+                self.listings = nil
+            }
             return self.mapResponse(with: responseDTO, date: date)
         }
         

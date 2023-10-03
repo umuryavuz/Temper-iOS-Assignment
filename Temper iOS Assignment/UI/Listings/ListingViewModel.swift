@@ -46,8 +46,9 @@ class ListingViewModel: ObservableObject {
         isLoading = true
         self.currentDate = Date()
         self.lastFetchDate = self.currentDate
+        self.pageIndex = 0
         Task {
-            let list = await listingRepository.getListings(date: self.currentDate)
+            let list = await listingRepository.getListings(date: self.currentDate, force: true)
             Task.detached { @MainActor [weak self] in
                 self?.isLoading = false
             }
@@ -70,11 +71,14 @@ class ListingViewModel: ObservableObject {
             
             if let modifiedDate = modifiedDate {
                 self.lastFetchDate = modifiedDate
-                print("MORE DATA LOADED FOR \(modifiedDate.format(.dashedDate))")
                 Task {
-                    await listingRepository.getListings(date: modifiedDate)
+                    let list = await listingRepository.getListings(date: modifiedDate)
                     Task.detached { @MainActor [weak self] in
                         self?.isLoading = false
+                    }
+                    
+                    if let list = list, list.isEmpty {
+                        await loadMore()
                     }
                 }
             }

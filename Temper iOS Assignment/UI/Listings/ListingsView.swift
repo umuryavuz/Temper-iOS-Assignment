@@ -15,6 +15,8 @@ struct ListingsView: View {
     internal var scrollContentBottomPadding: CGFloat = 100
     internal var scrollContentHorizontalPadding: CGFloat = 16
     
+    internal var bottomProgressViewHeight: CGFloat = 100
+    
     @State private var showScrollToTop: Bool = false
     
     var body: some View {
@@ -45,7 +47,7 @@ struct ListingsView: View {
                     if let _ = viewModel.listings {
                         ProgressView()
                             .tint(.black)
-                            .frame(height: 100)
+                            .frame(height: bottomProgressViewHeight)
                             .frame(maxWidth: .infinity)
                     }
                     

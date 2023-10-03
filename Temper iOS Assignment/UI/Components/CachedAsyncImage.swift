@@ -48,13 +48,31 @@ struct CachedAsyncImage<Content>: View where Content: View{
 fileprivate class AsyncImageCache {
     
     static private var cache: [URL: Image] = [:]
+    static private let cacheQueue = DispatchQueue(label: "ImageCacheQueue")
+    static private var lru: [URL] = [] // Least recently used items
+    static private let maxCacheSize = 50 // 200 images to cache to limit memory usage
     
     static subscript(url: URL) -> Image? {
         get {
-            AsyncImageCache.cache[url]
+            return cacheQueue.sync {
+                if let image = cache[url] {
+                    lru.removeAll { $0 == url }
+                    lru.append(url)
+                    return image
+                }
+                return nil
+            }
         }
         set {
-            AsyncImageCache.cache[url] = newValue
+            cacheQueue.sync {
+                cache[url] = newValue
+                lru.append(url)
+                
+                if lru.count > maxCacheSize {
+                    let urlToRemove = lru.removeFirst()
+                    cache.removeValue(forKey: urlToRemove)
+                }
+            }
         }
     }
 }

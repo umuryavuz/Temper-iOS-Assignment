@@ -38,7 +38,6 @@
 		305AD4AD2ACB788C00FA717C /* ListingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302A0A862AC9B4D4003B32FD /* ListingDTO.swift */; };
 		3061E1332ACB7B20003A06B7 /* Temper+Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EECA052ACA0B7D00E676B1 /* Temper+Endpoint.swift */; };
 		3061E1342ACB7B49003A06B7 /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EECA072ACA0CE300E676B1 /* URL+Extensions.swift */; };
-		3061E1362ACB7C8E003A06B7 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061E1352ACB7C8E003A06B7 /* test.swift */; };
 		3061E1382ACB7D10003A06B7 /* ListingRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3061E1372ACB7D10003A06B7 /* ListingRepositoryTests.swift */; };
 		308A37CC2ACB87370047202B /* ListingRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EECA0A2ACA0F3600E676B1 /* ListingRepository.swift */; };
 		308A37CD2ACB876E0047202B /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302A0A8C2AC9BE4F003B32FD /* Listing.swift */; };
@@ -103,7 +102,6 @@
 		302A0AA52AC9F04C003B32FD /* Temper-iOS-Assignment-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Temper-iOS-Assignment-Info.plist"; sourceTree = SOURCE_ROOT; };
 		302A0AA62AC9F174003B32FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		305AD49C2ACB6D1600FA717C /* Temper iOS AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Temper iOS AssignmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3061E1352ACB7C8E003A06B7 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		3061E1372ACB7D10003A06B7 /* ListingRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingRepositoryTests.swift; sourceTree = "<group>"; };
 		3098C4582ACAE8CD002B7A73 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		3098C45A2ACAECE0002B7A73 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -283,7 +281,6 @@
 			isa = PBXGroup;
 			children = (
 				305AD4A52ACB6D9F00FA717C /* Repositories */,
-				3061E1352ACB7C8E003A06B7 /* test.swift */,
 			);
 			path = "Temper iOS AssignmentTests";
 			sourceTree = "<group>";
@@ -495,7 +492,6 @@
 				308A37D22ACB87A20047202B /* DateError.swift in Sources */,
 				308A37D32ACB87AD0047202B /* Date+Extensions.swift in Sources */,
 				308A37CF2ACB87810047202B /* Currency.swift in Sources */,
-				3061E1362ACB7C8E003A06B7 /* test.swift in Sources */,
 				308A37CC2ACB87370047202B /* ListingRepository.swift in Sources */,
 				3061E1382ACB7D10003A06B7 /* ListingRepositoryTests.swift in Sources */,
 			);

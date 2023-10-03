@@ -7,7 +7,6 @@
 
 import XCTest
 import NetworkLayer
-//@testable import Temper_iOS_Assignment
 
 class ListingRepositoryTests: XCTestCase {
     
