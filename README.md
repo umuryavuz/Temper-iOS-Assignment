@@ -22,14 +22,23 @@ UIKit is mainly used for containing navgiation controllers and normal controller
 
 ### SwiftUI
 SwiftUI is used for fill up those UIKit continers with actualy view components. 
+
 Custom modifiers and Extension are stored in seperate files in correspoing folders. 
+
+LazyVStack in a Scroll view is used to ensure smooth user experience and resource management by;
+- lazyly load listing items
+- unloading offscreen items
+- not loading unseen items
+
 
 ### Arhitecture
 MVVM + Coordinator architecture is used to conform data - UI connection and app wise navigational control. 
+
 Coordinators allow us to navigate through the app using UIKit based presentations. 
 
 ### Dependency injection
 Dependency injection is also made to make sure code simplicity and seperation of concern. 
+
 Repositories are used for handling scenario speficic data manupilation. In this project data manipulation is to receving requested data from Network Layer.
 After that, a Published variable is to be subscribed for use cases. 
 
@@ -39,7 +48,9 @@ ViewModel used in this project is completely seperated from data manipulation on
 
 ### Network Layer
 Network layer is a generic package to handle all kind of network requests.
+
 A generic modal type T is used to ensure the mapping modal is also given in usecases. 
+
 Network related errors are handled inside the NetworkLayer and subscription to these errors are optional. 
 
 ## Known Issues / Limitations
