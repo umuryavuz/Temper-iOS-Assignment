@@ -1,6 +1,9 @@
 # Temper-iOS-Assignment
 ## Table of Contents
 - [Technologies Used](#technologies-used)
+  - [UIKit](#uikit)
+  - [SwiftUI](#swiftui)
+  - [Architecture](#architecture)
   - [Dependency Injection](#dependency-injection)
   - [Network Layer](#network-layer)
 - [Known Issues / Limitations](#known-issues--limitations)
@@ -9,6 +12,7 @@
 - [Potential Improvements](#potential-improvements)
   - [Image Caching](#image-caching-1)
   - [Repository Errors and ViewModels](#repository-errors-and-viewmodels)
+- [External Libraries Used](#external-libraries-used)
 
 ## Technologies Used
 In this project SwiftUI and UIKit is used as hybrid to build up the UI of the project. 
