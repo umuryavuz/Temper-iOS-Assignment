@@ -16,67 +16,67 @@
 - [External Libraries Used](#external-libraries-used)
 
 ## Technologies Used
-In this project SwiftUI and UIKit is used as hybrid to build up the UI of the project. 
+In this project, SwiftUI and UIKit are used as a hybrid to build up the UI of the project. 
 
 ### UIKit
-UIKit is mainly used for containing navgiation controllers and normal controllers. 
+UIKit is mainly used for containing navigation controllers and normal controllers. 
 
 ### SwiftUI
-SwiftUI is used for fill up those UIKit continers with actualy view components. 
+SwiftUI is used to fill up those UIKit containers with actual view components. 
 
-Custom modifiers and Extension are stored in seperate files in correspoing folders. 
+Custom modifiers and extensions are stored in separate files in corresponding folders. 
 
-LazyVStack in a Scroll view is used to ensure smooth user experience and resource management by;
-- lazyly load listing items
-- unloading offscreen items
+LazyVStack in a ScrollView is used to ensure a smooth user experience and resource management by:
+- lazily loading listing items
+- unloading off-screen items
 - not loading unseen items
 
-### Asyncronous Programming
-Swift Concurrency is used for async functions in NetworkLayer to Repository. Ensuring code cleannes and native approach at the same time.
+### Asynchronous Programming
+Swift Concurrency is used for async functions from NetworkLayer to Repository, ensuring code cleanliness and a native approach simultaneously.
 
-Combine is used to subscribe dynamic data from repositories to make sure data manupulation is also not done in ViewModels. 
+Combine is used to subscribe to dynamic data from repositories to ensure that data manipulation is not done in ViewModels. 
 
-### Arhitecture
-MVVM + Coordinator architecture is used to conform data - UI connection and app wise navigational control. 
+### Architecture
+MVVM + Coordinator architecture is used to conform to data-UI connection and app-wide navigational control. 
 
-Coordinators allow us to navigate through the app using UIKit based presentations. 
+Coordinators allow us to navigate through the app using UIKit-based presentations. 
 
-### Dependency injection
-Dependency injection is also made to make sure code simplicity and seperation of concern. 
+### Dependency Injection
+Dependency injection is made to ensure code simplicity and separation of concern. 
 
-Repositories are used for handling scenario speficic data manupilation. In this project data manipulation is to receving requested data from Network Layer.
-After that, a Published variable is to be subscribed for use cases. 
+Repositories are used for handling scenario-specific data manipulation. In this project, data manipulation is for receiving requested data from the Network Layer.
+After that, a Published variable is to be subscribed to for use cases. 
 
-Repositories are stored in Dependency Container (single class) and is injected to the viewModel to be used by the Main Coordinator. 
+Repositories are stored in a Dependency Container (a single class) and are injected into the ViewModel to be used by the Main Coordinator. 
 
-ViewModel used in this project is completely seperated from data manipulation only responsible for handling recevied data from corresponding repository. 
+The ViewModel used in this project is completely separated from data manipulation and is only responsible for handling received data from the corresponding repository. 
 
 ### Network Layer
-Network layer is a generic package to handle all kind of network requests.
+The Network Layer is a generic package to handle all kinds of network requests.
 
-A generic modal type T is used to ensure the mapping modal is also given in usecases. 
+A generic model type T is used to ensure that the mapping model is also given in use cases. 
 
-Network related errors are handled inside the NetworkLayer and subscription to these errors are optional. 
+Network-related errors are handled inside the Network Layer, and subscription to these errors is optional. 
 
 ## Known Issues / Limitations
 
 ### Image Caching
-Images are cached in customly made CacheAsyncImage component which is a fork of SwiftUI AsyncImage. 
-Caching is made by a fileprivate class contains static subscript, which is where the storing is performed. 
-Method used for caching using FIFO (first in first out) methodology which might not be the best usecase for user experince. 
+Images are cached in a customly made CacheAsyncImage component, which is a fork of SwiftUI's AsyncImage. 
+Caching is performed by a fileprivate class containing a static subscript, which is where the storing is performed. 
+The method used for caching uses a FIFO (first-in, first-out) methodology, which might not be the best use case for user experience. 
 
 ### API Response Handling
-Data objects used in this project made this way to ensure its not the same solution with the given example in the project document. 
-Not using a decoder with pre-defined coding keys, leads to many Structs for inner json objects, which may not be a best solution if most of the data will not be used. 
+Data objects used in this project are made this way to ensure they are not the same solution as the given example in the project document. 
+Not using a decoder with pre-defined coding keys leads to many structs for inner JSON objects, which may not be the best solution if most of the data will not be used. 
 
 ## Potential Improvements
 ### Image Caching
-One approach to improve image caching and keeping UX still at the same time might be listening to scroll direction. 
-By listening the direction, we can also change direction of how FIFO effect the LRU(least recently used) array. This way we make sure that when scroll up, cache eviction process will start removing the images left in the opposite direction. 
+One approach to improve image caching while maintaining UX might be listening to scroll direction. 
+By listening to the direction, we can also change the direction of how FIFO affects the LRU (least recently used) array. This way, we ensure that when scrolling up, the cache eviction process will start removing the images left in the opposite direction. 
 
 ### Repository Errors and ViewModels
-As I said before about error handling perform seperately in corresponding scopes, the errors related to Repositories might concerning UI as well. In this project error handling in ListingRepository is only handled by printing out the error descriptions.
-What we can do is converting getListing method to throw function and further errors emitted from this function can be catched in ViewModels, which can be used to show them or adjust the UI accordingly. 
+As mentioned before, error handling is performed separately in corresponding scopes; the errors related to Repositories might concern the UI as well. In this project, error handling in the ListingRepository is only handled by printing out the error descriptions.
+What we can do is convert the getListing method to a throwing function, and further errors emitted from this function can be caught in ViewModels, which can be used to adjust the UI accordingly. 
 
 ## External Libraries Used
 Alamofire - Network Module
