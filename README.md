@@ -3,6 +3,7 @@
 - [Technologies Used](#technologies-used)
   - [UIKit](#uikit)
   - [SwiftUI](#swiftui)
+  - [Asynchronous Programming](#asynchronous-programming)
   - [Architecture](#architecture)
   - [Dependency Injection](#dependency-injection)
   - [Network Layer](#network-layer)
@@ -30,6 +31,10 @@ LazyVStack in a Scroll view is used to ensure smooth user experience and resourc
 - unloading offscreen items
 - not loading unseen items
 
+### Asyncronous Programming
+Swift Concurrency is used for async functions in NetworkLayer to Repository. Ensuring code cleannes and native approach at the same time.
+
+Combine is used to subscribe dynamic data from repositories to make sure data manupulation is also not done in ViewModels. 
 
 ### Arhitecture
 MVVM + Coordinator architecture is used to conform data - UI connection and app wise navigational control. 
